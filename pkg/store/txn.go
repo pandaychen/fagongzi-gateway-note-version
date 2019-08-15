@@ -10,8 +10,8 @@ import (
 
 // slowLogTxn wraps etcd transaction and log slow one.
 type slowLogTxn struct {
-	clientv3.Txn
-	cancel context.CancelFunc
+	clientv3.Txn //ETCD3 事务结构体
+	cancel       context.CancelFunc
 }
 
 func newSlowLogTxn(client *clientv3.Client) clientv3.Txn {

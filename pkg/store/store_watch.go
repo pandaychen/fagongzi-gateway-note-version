@@ -28,7 +28,7 @@ func (e *EtcdStore) doWatch() {
 	watcher := clientv3.NewWatcher(e.rawClient)
 	defer watcher.Close()
 
-	ctx := e.rawClient.Ctx()
+	ctx := e.rawClient.Ctx()		//rawClient 中的Context上下文
 	for {
 		rch := watcher.Watch(ctx, e.prefix, clientv3.WithPrefix())
 		for wresp := range rch {
